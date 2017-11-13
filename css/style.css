@@ -1,0 +1,229 @@
+
+body {
+	margin: 0;
+	background: url("image/fon8.jpg");
+	background-size: 25% 25%;
+
+}
+
+.header {
+	width: 100%;
+	height: 70px;
+}
+
+.menu {
+	height: 50px;
+	width: 100%;
+}
+.menu ul {
+	/*display: inline;*/
+
+}
+.menu ul li{
+	display: inline;
+	position: relative;
+	}
+.menu ul li a img {
+	width: 15%;
+	height: 4em;
+	position: relative; 
+}
+.menu ul li a {
+	
+}
+p {
+	position: absolute;	
+}
+.middle {
+	height: 550px; 
+	background: url("image/page2.png") no-repeat;
+	background-size: 80% 100%;
+	background-position: 30%;
+}
+
+.footer {
+	width: 100%;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+}
+.header img.bg1 {
+	float: right;
+	width: 23%;
+	height: 200%;
+}
+.header img.bg2 {
+	float: left;
+	width: 20%;
+	height: 220%;
+}
+.content {
+	width: 60%;
+	height: 87%;
+	padding-top: 4%;
+	margin: 0 0 0 16%;
+	margin-right: 0;
+}
+#C1 {
+	width: 30%;
+	height: 50%;
+	margin-left: 2%;
+}
+#C2 {
+	width: 30%;
+	height: 50%;
+	margin-left: 2%;
+}
+#C3 {
+	margin-left: 2%;
+	width: 30%;
+	height: 50%;
+}
+#btn {
+	width: 25%;
+	height: 10%;
+}
+#btn2 {
+	width: 30%;
+	height: 15%;
+}
+#ots {
+	padding-left:15%;
+}
+.rightMenu {
+	position: relative;
+	top: -90%;
+	float: right;
+	height: 87%;
+	width: 14%;
+}
+#rightmenubar {
+	height: 30%;
+	width: 100%;
+}
+.imger:hover ~ .ulet {
+	display: block;
+}
+.rightMenu ul {
+	background: url("image/page.png") no-repeat;
+	background-size: 100% 100%;
+	list-style: none;
+	width: 80%;
+	position: absolute;
+	left: -94%;
+	top: -2%;
+	padding-left: 20%;
+	display: none;
+}
+.rightMenu ul:hover {
+	display: block;
+}
+.rightMenu ul li {
+	background: red;
+	width: 80%;
+	margin-bottom: 1%;
+}
+div.footer p {
+	transform: rotate(90deg);
+	transform-origin: 0 16px 0;
+}
+.login {
+	margin: 0 0 0 2%;
+}
+.content-1 {
+	width: 60%;
+	height: 87%;
+	padding-top: 4%;
+	margin: 0 0 0 16%;
+	margin-right: 0;
+	
+}
+.autorisat {
+padding: 3%;
+text-align: center;
+}
+input[type=text], input[type=password], select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 30px;
+}
+
+input[type="submit"] {
+	margin: 0 10% 0 10%;
+}
+
+input[type="button"] {
+	margin: 0 10% 0 10%;
+}
+.inList li{
+	display: list-item !important;
+} 
+.inList {
+	position: absolute;
+	left: 10%;
+}
+
+.h11 {
+	text-align: center;
+}
+.login-r {
+	width: 60%;
+}
+.pas-r {
+	width: 58%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.test {
+	position: relative;
+	width: 25%;
+}
+.test img{
+	width: 100%;
+	height: 50px;
+}
+.test1 {
+	white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.test2 {
+	position: absolute;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height:100%;
+  transition: .5s ease;
+}
+.test:hover .test2 {
+  bottom: 0;
+  height: 100%;
+}
