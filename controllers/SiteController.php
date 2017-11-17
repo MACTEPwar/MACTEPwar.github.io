@@ -124,7 +124,7 @@ class SiteController extends Controller
         return $this->render('about');
     }
 	
-	public function actionF()
+	public function actionAutoris()
 	{
 		return $this->render('autoris');
 	}
