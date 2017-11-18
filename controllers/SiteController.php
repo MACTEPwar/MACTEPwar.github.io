@@ -124,8 +124,13 @@ class SiteController extends Controller
         return $this->render('about');
     }
 	
-	public function actionAutoris()
-	{
-		return $this->render('autoris');
-	}
+    public function actionAutoris()
+    {
+            return $this->render('autoris');
+    }
+    
+    public function actionRegistration()
+    {
+            return $this->render('registration');
+    }
 }

@@ -12,6 +12,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="veiwport" content="width-device-width initial-scale=1">
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <script type="text/javascript">
+            function golink()
+            {
+                    document.location.href = "index.php?r=site/registration";
+            }
+            function gotolink()
+            {   
+                    document.location.href = "index.php?r=site/autoris";
+            }
+	</script>
         <?php $this->head()?>
 </head>
 <body>
