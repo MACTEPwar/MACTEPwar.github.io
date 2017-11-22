@@ -63,6 +63,7 @@ p {
 	padding-top: 4%;
 	margin: 0 0 0 16%;
 	margin-right: 0;
+        overflow: auto;
 }
 #C1 {
 	width: 30%;
@@ -156,14 +157,20 @@ input[type="submit"] {
 input[type="button"] {
 	margin: 0 10% 0 10%;
 }
+.li-menu-hov:hover ~ .inList{
+   display: block; 
+}
 .inList li{
 	display: list-item !important;
 } 
 .inList {
 	position: absolute;
 	left: 10%;
+        display: none;
 }
-
+.inList:hover {
+    display: block;
+}
 .h11 {
 	text-align: center;
 }

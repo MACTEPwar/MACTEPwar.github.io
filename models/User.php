@@ -2,9 +2,13 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+use yii\db\ActiveRecord;
+
+//class User extends \yii\base\Object implements \yii\web\IdentityInterface
+class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
     public $id;
+    public $email;
     public $username;
     public $password;
     public $authKey;
@@ -13,6 +17,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     private static $users = [
         '100' => [
             'id' => '100',
+            'email' => '2@b.b',
             'username' => 'admin',
             'password' => 'admin',
             'authKey' => 'test100key',
@@ -20,6 +25,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
         ],
         '101' => [
             'id' => '101',
+            'email' => '2@b.b',
             'username' => 'demo',
             'password' => 'demo',
             'authKey' => 'test101key',
@@ -64,6 +70,16 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             }
         }
 
+        return null;
+    }
+    
+    public static function findOne($email)
+    {
+        foreach (self::$users as $user) {
+            if (strcasecmp($user['email'], strval($email)) === 0) {
+                return new static($user);
+            }
+        }
         return null;
     }
 

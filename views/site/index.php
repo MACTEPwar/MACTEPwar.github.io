@@ -15,5 +15,5 @@ $this->title = 'My Yii Application';
             <a href="#"><img src="css/image/itl.png" id="btn2"></a>
             <a href="#"><img src="css/image/itl.png" id="btn2"></a>
             <a href="#"><img src="css/image/itl.png" id="btn2"></a>
-    </div>
+    </div>    
 </div>

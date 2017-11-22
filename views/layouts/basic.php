@@ -32,22 +32,21 @@
 	</div>
 	<div class="menu">
 		<ul>
-			<li><a href="index.php?r=site/"><img src="css/image/main.png"></a></li>
-			<li><a href="#"><img src="css/image/main.png"></a></li>
-			<li>
-				<a href="index.php?r=site/autoris"><img src="css/image/main.png" class="li-menu-hov"></a>
-				<ul class="inList">
-					<li><a href="#">Мои рецепты</a></li>
-					<li><a href="#">Хочу приготовить</a></li>
-					<li><a href="#">Турнир</a></li>
-					<li><a href="#">Мой профиль</a></li>
-					<li><a href="#">Настройки профиля</a></li>
-				</ul>
-			</li>
+                    <li><a href="index.php?r=site/"><img src="css/image/main.png"></a></li>
+                    <li><a href="#"><img src="css/image/main.png"></a></li>
+                    <li>
+                        <a href="index.php?r=site/autoris" class="li-menu-hov"><img src="css/image/main.png"></a>
+                        <ul class="inList">
+                            <li><a href="#">Мои рецепты</a></li>
+                            <li><a href="#">Хочу приготовить</a></li>
+                            <li><a href="#">Турнир</a></li>
+                            <li><a href="#">Мой профиль</a></li>
+                            <li><a href="#">Настройки профиля</a></li>
+                        </ul>
+                    </li>
 		</ul>
 	</div>
 	<div class="middle">
-		
 			<?= $content?>
 		
 		<div class="rightMenu">
