@@ -3,9 +3,10 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 //class User extends \yii\base\Object implements \yii\web\IdentityInterface
-class User extends ActiveRecord implements \yii\web\IdentityInterface
+class User extends ActiveRecord implements IdentityInterface
 {
     public $id;
     public $email;
@@ -39,7 +40,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return self::findOneId($id);
+        //return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
     }
 
     /**
@@ -65,24 +67,48 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     public static function findByUsername($username)
     {
         foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
+            if (strcasecmp($user['username'], strval($username)) === 0) {
                 return new static($user);
             }
         }
 
+        return null;
+    }
+    public static function findOneId($id)
+    {
+        foreach (self::$users as $user) {
+            if (strcasecmp($user['id'], strval($id)) === 0) {
+                return new static($user);
+            }
+        }
+        return null;
+    } 
+    public static function findOne($email)
+    {
+        foreach (self::$users as $user)
+        {
+            if (strcasecmp($user['email'], strval($email)) === 0) 
+            {
+                return new static($user);
+            }
+        }
         return null;
     }
     
-    public static function findOne($email)
+    public static function findOneTest($email)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['email'], strval($email)) === 0) {
-                return new static($user);
-            }
-        }
-        return null;
+//        foreach (self::$users as $user)
+//        {
+//            if ($user['email']==$email)
+//            {
+//                echo '2';
+//                return new ($user);
+//            }
+//        }
+//        echo '3';
+//        return null;
+        return $email;
     }
-
     /**
      * @inheritdoc
      */

@@ -18,12 +18,30 @@ class Login extends Model
         ];
     }
     
-    public function validatePassword($attribute,$params)
+//    public function validatePassword($attribute,$params)
+//    {
+//        $user = $this->getUser();
+//        if (!$user || ($user->password != $this->password))
+//        {
+//            $this->addError($attribute, 'пароль или пользователь введены не верно');
+//        }
+//    }
+    
+     public function validatePassword($attribute,$params)
     {
-        $user = User::findOne($this->email);
-        if (!$user || ($user->password != $this->password))
+        if (!$this->hasErrors())
         {
-            $this->addError($attribute, 'пароль или пользователь введены не верно');
+            $user = $this->getUser();
+            if (!$user || !$user->validatePassword($this->password))
+            {
+                $this->addError($attribute, 'пароль или пользователь введены не верно');
+            }
         }
     }
+    
+    public function getUser()
+    {
+        return User::findOne($this->email);
+    }
+    
 }

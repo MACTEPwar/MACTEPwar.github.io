@@ -73,18 +73,12 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-//        if (!Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
-//
-//        $model = new LoginForm();
-//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            return $this->goBack();
-//        }
-//        return $this->render('login', [
-//            'model' => $model,
-//        ]);
-        
+        if (!Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+            // если пользователь уже залогинен, то перернаправляется на 
+            // главную старницу сайта
+        }
         $login_model = new Login();
         
         if (Yii::$app->request->post('Login'))
@@ -93,7 +87,9 @@ class SiteController extends Controller
             
             if ($login_model->validate())
             {
-                var_dump('мы прошли валидайцию');die();
+                //var_dump('мы прошли валидайцию');die();
+                Yii::$app->user->login($login_model->getUser());
+                return $this->goHome();
             }
         }
         
@@ -149,4 +145,6 @@ class SiteController extends Controller
     {
             return $this->render('registration');
     }
+    
+   
 }
