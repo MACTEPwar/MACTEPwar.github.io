@@ -9,8 +9,6 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\Login;
-
 
 class SiteController extends Controller
 {
@@ -73,27 +71,17 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest)
-        {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
-            // если пользователь уже залогинен, то перернаправляется на 
-            // главную старницу сайта
         }
-        $login_model = new Login();
-        
-        if (Yii::$app->request->post('Login'))
-        {
-            $login_model->attributes = Yii::$app->request->post('Login');
-            
-            if ($login_model->validate())
-            {
-                //var_dump('мы прошли валидайцию');die();
-                Yii::$app->user->login($login_model->getUser());
-                return $this->goHome();
-            }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
         }
-        
-        return $this->renderPartial('login',['login_model'=>$login_model]);
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -135,16 +123,4 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-	
-    public function actionAutoris()
-    {
-            return $this->render('autoris');
-    }
-    
-    public function actionRegistration()
-    {
-            return $this->render('registration');
-    }
-    
-   
 }

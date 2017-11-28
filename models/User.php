@@ -2,14 +2,9 @@
 
 namespace app\models;
 
-use yii\db\ActiveRecord;
-use yii\web\IdentityInterface;
-
-//class User extends \yii\base\Object implements \yii\web\IdentityInterface
-class User extends ActiveRecord implements IdentityInterface
+class User extends \yii\base\Object implements \yii\web\IdentityInterface
 {
     public $id;
-    public $email;
     public $username;
     public $password;
     public $authKey;
@@ -18,7 +13,6 @@ class User extends ActiveRecord implements IdentityInterface
     private static $users = [
         '100' => [
             'id' => '100',
-            'email' => '2@b.b',
             'username' => 'admin',
             'password' => 'admin',
             'authKey' => 'test100key',
@@ -26,7 +20,6 @@ class User extends ActiveRecord implements IdentityInterface
         ],
         '101' => [
             'id' => '101',
-            'email' => '2@b.b',
             'username' => 'demo',
             'password' => 'demo',
             'authKey' => 'test101key',
@@ -40,8 +33,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return self::findOneId($id);
-        //return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
     }
 
     /**
@@ -67,48 +59,14 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], strval($username)) === 0) {
+            if (strcasecmp($user['username'], $username) === 0) {
                 return new static($user);
             }
         }
 
         return null;
     }
-    public static function findOneId($id)
-    {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['id'], strval($id)) === 0) {
-                return new static($user);
-            }
-        }
-        return null;
-    } 
-    public static function findOne($email)
-    {
-        foreach (self::$users as $user)
-        {
-            if (strcasecmp($user['email'], strval($email)) === 0) 
-            {
-                return new static($user);
-            }
-        }
-        return null;
-    }
-    
-    public static function findOneTest($email)
-    {
-//        foreach (self::$users as $user)
-//        {
-//            if ($user['email']==$email)
-//            {
-//                echo '2';
-//                return new ($user);
-//            }
-//        }
-//        echo '3';
-//        return null;
-        return $email;
-    }
+
     /**
      * @inheritdoc
      */
