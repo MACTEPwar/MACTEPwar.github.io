@@ -123,4 +123,8 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionTest2()
+    {
+        return $this->render('test2');
+    }
 }
